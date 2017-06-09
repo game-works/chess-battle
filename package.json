@@ -18,6 +18,8 @@
   "homepage": "https://github.com/game-works/chess-battle#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "socket.io": "^2.0.1"
+    "socket.io": "^2.0.1",
+    "body-parser": "^1.17.2",
+    "mongodb": "^2.2.27"
   }
 }

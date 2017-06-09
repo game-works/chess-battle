@@ -1,10 +1,13 @@
-var log = function (message) {
-	//alert(message);
-};
+/**
+ * Created by likaituan on 02/06/2017.
+ */
 
 window.onload = function () {
-	var username;
-	var socket = io();
+	window.username = '';
+	window.addUser = function (user) {
+		document.getElementsByClassName('userList')[0].innerHTML += `<li>${user.username}</li>`;
+	};
+	window.socket = io();
 
 	socket.on('login', function (data) {
 		addUser(data);
@@ -30,15 +33,7 @@ window.onload = function () {
 		log('attempt to reconnect has failed');
 	});
 
-	var addUser = function (user) {
-		document.getElementsByClassName('userList')[0].innerHTML += `<li>${user.username}</li>`;
-	};
 
-	document.getElementsByClassName('btnLogin')[0].onclick = function (){
-		var username = document.getElementsByClassName('username')[0].value;
-		var data = {username};
-		addUser(data);
-		socket.emit('join', data);
-	};
-
+	window.Data = {};
+	go('gate');
 };
